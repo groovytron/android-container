@@ -1,5 +1,7 @@
 # Docker container for Android build
 
+[![Build Status](https://travis-ci.org/groovytron/android-container.svg?branch=master)](https://travis-ci.org/groovytron/android-container)
+
 Docker container allowing you to build and test your Android project.
 
 ## Tools embedded in the container
