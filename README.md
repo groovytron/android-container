@@ -18,7 +18,7 @@ The following tools are embedded in the container:
 
 ## Use the container
 
-We recommend you use the `dev` user instead of `root` when running that container to avoid privileg escalation.
+We recommend you use the `dev` user instead of `root` when running that container to avoid privilege escalation.
 
 The container's working directory is `/home/dev/android_project` so we advise you to mount your project directory onto this place.
 
@@ -36,5 +36,5 @@ You can then the following commands in the container to check if everything work
 
 ## Improvements
 
-- [ ] Add `Fastlane` to the container
+- [ ] Add `Fastlane` (or an alternative) to the container
 - [ ] Automate build on DockerHub
