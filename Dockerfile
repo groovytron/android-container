@@ -5,6 +5,9 @@ ARG GRADLE_VERSION=4.8.1
 ARG KOTLIN_VERSION=1.2.50
 ARG ANDROID_SDK_VERSION_ID=4333796
 ARG ANDROID_BUILDTOOLS_VERSIONS=25.0.3,26.0.3,27.0.3,28.0.3
+ARG RUBY_VERSION=2.5
+ARG FASTLANE_VERSION=2.114.0
+ARG SCREENGRAB_VERSION=1.0.0
 
 ENV GRADLE_HOME=/opt/gradle
 ENV KOTLIN_HOME=/opt/kotlinc
@@ -16,15 +19,23 @@ ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 RUN apt-get update --quiet --yes \
     && apt-get upgrade --quiet --yes \
     && apt-get install --quiet --yes \
+        build-essential \
+        dh-autoreconf \
         git \
         lib32stdc++-6-dev \
         lib32z1 \
+        locales \
         openjdk-8-jdk \
+        ruby${RUBY_VERSION} \
+        ruby${RUBY_VERSION}-dev \
         tar \
         unzip \
         wget \
     && apt-get autoremove --quiet --yes \
-    && apt-get clean
+    && apt-get clean \
+    && gem install \
+        fastlane:${FASTLANE_VERSION} \
+        screengrab:${SCREENGRAB_VERSION}
 
 # Download and install Gradle
 RUN wget --no-verbose https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip \
@@ -88,3 +99,15 @@ LABEL maintainer="Julien M'Poy <julien.mpoy@gmail.com>" \
     org.label-schema.vcs-ref=${VCS_REF} \
     org.label-schema.vcs-url="https://github.com/groovytron/android-container" \
     org.label-schema.schema-version="1.0"
+
+# Set the locales
+RUN locale-gen en_US
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+# RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+#     locale-gen
+# ENV LANG en_US.UTF-8
+# ENV LANGUAGE en_US:en
+# ENV LC_ALL en_US.UTF-8

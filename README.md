@@ -38,5 +38,6 @@ You can then the following commands in the container to check if everything work
 
 ## Improvements
 
-- [ ] Add `Fastlane` (or an alternative) to the container
+- [X] Add `Fastlane` (or an alternative) to the container
+- [X] Set locales
 - [ ] Automate build on DockerHub
