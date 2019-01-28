@@ -28,7 +28,7 @@ The container's working directory is `/home/dev/android_project` so we advise yo
 
 To run the container and open a bash in your android project run the following command:
 
-`docker run -it --entrypoint /bin/bash --user=dev --volume=<path-to-your-android-project-directory>:/home/dev/android_project android-container:latest`
+`docker run -it --entrypoint /bin/bash --user=dev --volume=<path-to-your-android-project-directory>:/home/dev/android_project groovytron/android:latest`
 
 You can then the following commands in the container to check if everything works:
 
