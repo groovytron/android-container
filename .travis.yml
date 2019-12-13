@@ -3,5 +3,13 @@ sudo: required
 services:
   - docker
 
+env:
+  matrix:
+    - ANDROID_VERSION=29
+    - ANDROID_VERSION=28
+    - ANDROID_VERSION=27
+    - ANDROID_VERSION=26
+    - ANDROID_VERSION=25
+
 script:
-  - make
+  - make "android$ANDROID_VERSION"

@@ -1,0 +1,79 @@
+# This file is only used to build multiple images
+version: '3'
+
+services:
+  android29:
+    image: ${COMPOSE_BUILD_NAME}:29
+    build:
+      dockerfile: 29/Dockerfile
+      context: .
+      args:
+        - ANDROID_SDK_VERSION_ID=4333796
+        - ANDROID_BUILDTOOLS_VERSION=29.0.2
+        - BUILD_DATE=$BUILD_DATE
+        - FASTLANE_VERSION=2.137.0
+        - GRADLE_VERSION=6.0.1
+        - KOTLIN_VERSION=1.3.60
+        - RUBY_VERSION=2.5
+        - SCREENGRAB_VERSION=1.0.0
+        - VCS_REF=$VCS_REF
+  android28:
+    image: ${COMPOSE_BUILD_NAME}:28
+    build:
+      dockerfile: 28/Dockerfile
+      context: .
+      args:
+        - ANDROID_SDK_VERSION_ID=4333796
+        - ANDROID_BUILDTOOLS_VERSION=28.0.3
+        - BUILD_DATE=$BUILD_DATE
+        - FASTLANE_VERSION=2.137.0
+        - GRADLE_VERSION=6.0.1
+        - KOTLIN_VERSION=1.3.60
+        - RUBY_VERSION=2.5
+        - SCREENGRAB_VERSION=1.0.0
+        - VCS_REF=$VCS_REF
+  android27:
+    image: ${COMPOSE_BUILD_NAME}:27
+    build:
+      dockerfile: 27/Dockerfile
+      context: .
+      args:
+        - ANDROID_SDK_VERSION_ID=4333796
+        - ANDROID_BUILDTOOLS_VERSION=27.0.3
+        - BUILD_DATE=$BUILD_DATE
+        - FASTLANE_VERSION=2.137.0
+        - GRADLE_VERSION=6.0.1
+        - KOTLIN_VERSION=1.3.60
+        - RUBY_VERSION=2.5
+        - SCREENGRAB_VERSION=1.0.0
+        - VCS_REF=$VCS_REF
+  android26:
+    image: ${COMPOSE_BUILD_NAME}:26
+    build:
+      dockerfile: 26/Dockerfile
+      context: .
+      args:
+        - ANDROID_SDK_VERSION_ID=4333796
+        - ANDROID_BUILDTOOLS_VERSION=26.0.3
+        - BUILD_DATE=$BUILD_DATE
+        - FASTLANE_VERSION=2.137.0
+        - GRADLE_VERSION=6.0.1
+        - KOTLIN_VERSION=1.3.60
+        - RUBY_VERSION=2.5
+        - SCREENGRAB_VERSION=1.0.0
+        - VCS_REF=$VCS_REF
+  android25:
+    image: ${COMPOSE_BUILD_NAME}:25
+    build:
+      dockerfile: 25/Dockerfile
+      context: .
+      args:
+        - ANDROID_SDK_VERSION_ID=4333796
+        - ANDROID_BUILDTOOLS_VERSION=25.0.3
+        - BUILD_DATE=$BUILD_DATE
+        - FASTLANE_VERSION=2.137.0
+        - GRADLE_VERSION=6.0.1
+        - KOTLIN_VERSION=1.3.60
+        - RUBY_VERSION=2.5
+        - SCREENGRAB_VERSION=1.0.0
+        - VCS_REF=$VCS_REF
