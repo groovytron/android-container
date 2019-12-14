@@ -1,12 +1,13 @@
 FROM ubuntu:bionic
 
-ARG DEBIAN_FRONTEND=noninteractive
-ARG GRADLE_VERSION=
-ARG KOTLIN_VERSION=
 ARG ANDROID_SDK_VERSION_ID=
 ARG ANDROID_BUILDTOOLS_VERSION=
-ARG RUBY_VERSION=
+ARG DEBIAN_FRONTEND=noninteractive
 ARG FASTLANE_VERSION=
+ARG GRADLE_VERSION=
+ARG JAVA_VERSION=
+ARG KOTLIN_VERSION=
+ARG RUBY_VERSION=
 ARG SCREENGRAB_VERSION=
 # Label schema related variables and metadata
 ARG BUILD_DATE
@@ -16,7 +17,7 @@ ENV GRADLE_HOME=/opt/gradle
 ENV KOTLIN_HOME=/opt/kotlinc
 ENV ANDROID_SDK_DIR=/opt/android-sdk
 ENV ANDROID_HOME="${ANDROID_SDK_DIR}/sdk-tools-linux-${ANDROID_SDK_VERSION_ID}"
-ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+ENV JAVA_HOME="/usr/lib/jvm/java-1.${JAVA_VERSION}.0-openjdk-amd64"
 ENV ANDROID_PROJECT_DIR=/home/dev/android_project
 
 # Distribution update and upgrade and dependencies installation
@@ -29,7 +30,7 @@ RUN apt-get update --quiet --yes \
         lib32stdc++-6-dev \
         lib32z1 \
         locales \
-        openjdk-8-jdk \
+        openjdk-${JAVA_VERSION}-jdk \
         ruby${RUBY_VERSION} \
         ruby${RUBY_VERSION}-dev \
         tar \
