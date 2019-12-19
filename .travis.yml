@@ -13,3 +13,22 @@ env:
 
 script:
   - make "android$ANDROID_VERSION"
+  - chmod --recursive a+wrx .
+  - >
+    docker run
+    -it
+    --volume
+    $(pwd):/home/dev/android_project:rw
+    --user dev
+    "android-container:$ANDROID_VERSION"
+    bash ./tests/run_smoke_tests.sh
+    /home/dev/android_project/tests/JavaTestApplication
+  - >
+    docker run
+    -it
+    --volume
+    $(pwd):/home/dev/android_project:rw
+    --user dev
+    "android-container:$ANDROID_VERSION"
+    bash ./tests/run_smoke_tests.sh
+    /home/dev/android_project/tests/KotlinTestApplication
