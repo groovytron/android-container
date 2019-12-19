@@ -4,19 +4,23 @@
 
 Docker container allowing you to build and test your Android project.
 
-## Tools embedded in the container
+## Supported tags and respective `Dockerfile` links
 
-The following tools are embedded in the container:
+- `29`, `latest` ([29/Dockerfile](https://github.com/groovytron/android-container/blob/master/29/Dockerfile))
+- `28` ([28/Dockerfile](https://github.com/groovytron/android-container/blob/master/28/Dockerfile))
+- `27` ([27/Dockerfile](https://github.com/groovytron/android-container/blob/master/27/Dockerfile))
+- `26` ([26/Dockerfile](https://github.com/groovytron/android-container/blob/master/26/Dockerfile))
+- `25` ([25/Dockerfile](https://github.com/groovytron/android-container/blob/master/25/Dockerfile))
 
-- Java: *openjdk 8*
-- Gradle: *4.8.1*
-- Kotlin: *1.2.50*
-- Android SDK version *4333796* with the following platform and build tools versions:
+Each of these images embeds the following softwares:
 
-    - *28.0.3*
-    - *27.0.3*
-    - *26.0.3*
-    - *25.0.3*
+- Android SDK and build tools (command line tools)
+- [`gradle`](https://gradle.org)
+- [`kotlin`](https://kotlinlang.org)
+- [`fastlane`](https://fastlane.tools)
+- Java (*openjdk 8*)
+
+Check the `build.yaml` to see which version is embedded of each software is installed in the image you are using. We try to keep them up to date when a new version is available.
 
 ## Use the container
 
@@ -36,8 +40,8 @@ You can then the following commands in the container to check if everything work
 - `./gradlew tasks` to list the available tasks
 - `./gradlew assembleDebug` to build a debug APK
 
-## Improvements
+## Contribute to the project
 
-- [X] Add `Fastlane` (or an alternative) to the container
-- [X] Set locales
-- [ ] Automate build on DockerHub
+### Upgrading an image or create a new up-to-date
+
+- If you are struggling to find the last VERSION ID of the command line SDK tools, they are listed here: <https://developer.android.com/studio#command-tools>.
